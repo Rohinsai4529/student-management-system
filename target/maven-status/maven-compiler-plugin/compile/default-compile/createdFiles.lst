@@ -1,0 +1,13 @@
+com\studentmanagement\service\StudentServiceImpl.class
+com\studentmanagement\dto\StudentResponse.class
+com\studentmanagement\StudentManagementApplication.class
+com\studentmanagement\config\CorsConfig$1.class
+com\studentmanagement\security\JwtAuthenticationFilter.class
+com\studentmanagement\dto\LoginResponse.class
+com\studentmanagement\repository\StudentRepository.class
+com\studentmanagement\security\JwtService.class
+com\studentmanagement\config\SecurityConfig.class
+com\studentmanagement\controller\StudentController.class
+com\studentmanagement\service\StudentService.class
+com\studentmanagement\config\CorsConfig.class
+com\studentmanagement\entity\Student.class
