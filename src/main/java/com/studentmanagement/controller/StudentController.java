@@ -1,5 +1,6 @@
 package com.studentmanagement.controller;
 
+import com.studentmanagement.dto.LoginRequest;
 import com.studentmanagement.dto.LoginResponse;
 import com.studentmanagement.dto.StudentResponse;
 import com.studentmanagement.entity.Student;
@@ -21,24 +22,21 @@ public class StudentController {
     }
 
     @PostMapping("/register")
-    public StudentResponse register(
-            @RequestBody Student student) {
-
+    public StudentResponse register(@RequestBody Student student) {
         return studentService.register(student);
     }
 
     @PostMapping("/login")
-    public LoginResponse login(
-            @RequestParam String email,
-            @RequestParam String password) {
-
-        return studentService.login(email, password);
+    public LoginResponse login(@RequestBody LoginRequest request) {
+        return studentService.login(
+                request.getEmail(),
+                request.getPassword()
+        );
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public List<StudentResponse> getAllStudents() {
-
         return studentService.getAllStudents();
     }
 
@@ -69,8 +67,7 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public String deleteStudent(
-            @PathVariable Long id) {
+    public String deleteStudent(@PathVariable Long id) {
 
         studentService.deleteStudent(id);
 
